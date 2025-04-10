@@ -11,7 +11,7 @@
  * Definição: seção para código do usuário. 
  */
 
-import Token;
+import token.Token;
 
 
 /**
