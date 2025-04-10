@@ -33,7 +33,10 @@ PONTOEVIRGULA = ";"
 ABREPARENTESE = "("
 FECHAPARENTESE = ")"
 SOMA = "+"
-ATRIBUICAO = "="
+SUBTRACAO = "-"
+MENORQUE = "<"
+MULTIPLICACAO = "*"
+ATRIBUICAO = ":="
 COMPARACAO = "=="
 INTEIRO = 0|[1-9][0-9]*
 ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
@@ -49,10 +52,16 @@ ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
 {PONTOEVIRGULA}  { token = new Token(yyline, yycolumn, yytext(), "Ponto e vírgula"); token.imprimir(); }
 {ATRIBUICAO}     { token = new Token(yyline, yycolumn, yytext(), "Atribuição"); token.imprimir(); }
 {COMPARACAO}     { token = new Token(yyline, yycolumn, yytext(), "Comparação"); token.imprimir(); }   
+"writeln"        { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada writeln"); token.imprimir(); }
+"sqrt"           { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada sqrt"); token.imprimir(); }
 "if"             { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada if"); token.imprimir(); }
+"else"           { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada else"); token.imprimir(); }
 "then"           { token = new Token(yyline, yycolumn, yytext(), "Palavra reservada then"); token.imprimir(); }
 {BRANCO}         { token = new Token(yyline, yycolumn, yytext(), "Espaço em branco"); token.imprimir(); }
 {ID}             { token = new Token(yyline, yycolumn, yytext(), "Identificador"); token.imprimir(); }
 {SOMA}           { token = new Token(yyline, yycolumn, yytext(), "Operador de soma"); token.imprimir(); }
+{SUBTRACAO}      { token = new Token(yyline, yycolumn, yytext(), "Operador de subtracao"); token.imprimir(); }
+{MULTIPLICACAO}  { token = new Token(yyline, yycolumn, yytext(), "Operador de multiplicacao"); token.imprimir(); }
+{MENORQUE}       { token = new Token(yyline, yycolumn, yytext(), "menor que"); token.imprimir(); }
 {INTEIRO}        { token = new Token(yyline, yycolumn, yytext(), "Número inteiro"); token.imprimir(); }
 .                { token = new Token(yyline, yycolumn, yytext(), "Caracter inválido"); token.dispararExcecao(); }
